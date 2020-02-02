@@ -1,0 +1,15 @@
+#Client
+import socket
+import sys
+print("\nБиблиотеки импортированы\n")
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+host = 'LocalHost'
+port = 8007
+s.connect((host, port))
+print("\nНастройки Хоста и порта произведены\n")
+s.send("123".encode())  
+print("\nСообщение отправлено\n")
+data = s.recv(1000000) 
+print("\nИнформация с сервера:\n")
+print ("Данные: ",data, "\nРазмер:" ,len(data), "байт")
+s.close()
